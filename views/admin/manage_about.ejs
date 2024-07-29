@@ -1,0 +1,29 @@
+<%- include('navbar.ejs') %>
+<form method="post" action="/admin/save_about" enctype="multipart/form-data">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage About</h1>
+            </div>
+            <div class="col-md-3">
+                About title
+                <input type="hidden" name="about_id" value="<%=about['about_id']%>">
+                <input type="text" name="about_title" value="<%=about['about_title']%>">
+            </div>
+            <div class="col-md-3">
+                About paragraph
+                <input type="text" name="about_paragraph" value="<%=about['about_paragraph']%>">
+            </div>
+            <div class="col-md-3 mt-4">
+                <input type="file" name="about_image" required>
+            </div>
+            <div class="col-md-3 mt-4">
+                <img src="/images/<%=about['about_image']%>" width="100px">
+            </div>
+            <div class="col-md-12 mt-4 text-center">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('footer.ejs') %>

@@ -1,0 +1,65 @@
+<%- include('navbar.ejs') %>
+<form method="post" action="/admin/save_services" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage Services</h1>
+            </div>
+            <div class="col-md-4">
+                Title
+                <input type="text" name="services_title" required>
+            </div>
+            <div class="col-md-4">
+                Paragraph
+                <input type="text" name="services_paragraph" required>
+            </div>
+            <div class="col-md-4">
+                Price
+                <input type="text" name="services_price" required>
+            </div>
+            <div class="col-md-12 text-center mt-3">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    td{
+        text-align:center;
+    }
+    th{
+        text-align:center;
+    }
+</style>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>SR</th>
+                    <th>TITLE</th>
+                    <th>PARAGRAPH</th>
+                    <th>PRICE</th>
+                </tr>
+                <%for (var i=0;i<services.length;i++) { %>
+                <tr>
+                    <td style="width:100px;">
+                        <a href="/admin/edit_services/<%=services[i].services_id%>">
+                            <button class="btn btn-success">EDIT</button>
+                        </a>
+                        <a href="/admin/delete_services/<%=services[i].services_id%>"">
+                            <button class="btn btn-danger mt-3">DELETE</button>
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    <td><%=services[i].services_title%></td>
+                    <td><%=services[i].services_paragraph%></td>
+                    <td><%=services[i].services_price%></td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('footer.ejs') %>

@@ -1,0 +1,28 @@
+<%- include('navbar.ejs') %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-borderd">
+                <tr>
+                    <th>SN</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                </tr>
+                <% for(var i=0;i<user_info.length;i++) { %>
+                <tr>
+                    <td><%=i+1%></td>
+                    <td><%=user_info[i].fname%></td>
+                    <td><%=user_info[i].lname%></td>
+                    <td><%=user_info[i].email%></td>
+                    <td><%=user_info[i].subject%></td>
+                    <td><%=user_info[i].message%></td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('footer.ejs') %>

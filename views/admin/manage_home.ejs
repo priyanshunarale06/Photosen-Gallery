@@ -1,0 +1,61 @@
+<%- include('navbar.ejs') %>
+<form method="post" action="/admin/save_home_image" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage Home</h1>
+            </div>
+            <div class="col-md-6">
+                Title
+                <input type="text" name="home_image_title" >
+            </div>
+            Select Image
+            <div class="col-md-4">
+                <input type="file" name="home_images" required>
+            </div>
+            <div class="col-md-12 mt-4 text-center">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    td{
+        text-align:center;
+    }
+    th{
+        text-align:center;
+    }
+</style>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>SR</th>
+                    <th>Title</th>
+                    <th>Image</th>
+                </tr>
+                <%for (var i=0;i<home_image.length;i++) { %>
+                <tr>
+                    <td style="width:100px;">
+                        <a href="/admin/edit_home_image/<%=home_image[i].home_image_id%>">
+                            <button class="btn btn-success">EDIT</button>
+                        </a>
+                        <a href="/admin/delete_home_image/<%=home_image[i].home_image_id%>"">
+                            <button class="btn btn-danger mt-3">DELETE</button>
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    <td><%=home_image[i].home_image_title%></td>
+                    <td>
+                        <img src="/images/<%=home_image[i].home_images%>" width="100px">
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('footer.ejs') %>

@@ -1,0 +1,26 @@
+<%- include('navbar.ejs')%>
+<form method="post" action="/admin/update_home_image" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage Home</h1>
+            </div>
+            <input type="hidden" name="home_image_id" value="<%=home_image[0].home_image_id%>">
+            <div class="col-md-3">
+                Title
+                <input type="text" name="home_image_title" value="<%=home_image[0].home_image_title%>">
+            </div>
+            Select Image
+            <div class="col-md-3">
+                <input type="file" name="home_images" required>
+            </div>
+            <div class="col-md-4">
+                <img src="/images/<%=home_image[0].home_images%>" width="100px">
+            </div>
+            <div class="col-md-12 mt-4 text-center">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('footer.ejs')%>

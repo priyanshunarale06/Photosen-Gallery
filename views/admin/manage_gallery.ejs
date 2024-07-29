@@ -1,0 +1,55 @@
+<%- include('navbar.ejs') %>
+<form method="post" action="/admin/save_gallery_image" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage Gallery</h1>
+            </div>
+            Select Image
+            <div class="col-md-4">
+                <input type="file" name="gallery_images" required>
+            </div>
+            <div class="col-md-12 mt-4 text-center">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    td{
+        text-align:center;
+    }
+    th{
+        text-align:center;
+    }
+</style>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>SR</th>
+                    <th>Image</th>
+                </tr>
+                <%for (var i=0;i<gallery_image.length;i++) { %>
+                <tr>
+                    <td>
+                        <a href="/admin/edit_gallery_image/<%=gallery_image[i].gallery_image_id%>">
+                            <button class="btn btn-success">EDIT</button>
+                        </a>
+                        <a href="/admin/delete_gallery_image/<%=gallery_image[i].gallery_image_id%>">
+                            <button class="btn btn-danger">DELETE</button>
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    <td>
+                        <img src="/images/<%=gallery_image[i].gallery_images%>" width="100px">
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('footer.ejs') %>

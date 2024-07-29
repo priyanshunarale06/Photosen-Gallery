@@ -1,0 +1,36 @@
+<%- include('navbar.ejs') %>
+<form method="post" action="/admin/update_about_us" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage About Profile </h1>
+            </div>
+            <div class="col-md-3 mt-3">
+                <input type="file" name="about_us_image">
+            </div>
+            <div class="col-md-3 mt-3">
+                <img src="/images/<%=about_us[0].about_us_image%>" width="100px">
+            </div>
+            <div class="col-md-12 mt-4 ms-4">
+                About Paragraph: 
+                <textarea name="about_us_paragraph" class="w-50 mt-4"><%=about_us[0].about_us_paragraph%></textarea>
+            </div>
+            <div class="col-md-12 mt-4">
+                About Facebook Link: 
+                <input type="text" name="about_us_facebook" value="<%=about_us[0].about_us_facebook%>">
+            </div>
+            <div class="col-md-12 mt-4 ms-3">
+                About Twitter Link: 
+                <input type="text" name="about_us_twitter" value="<%=about_us[0].about_us_twitter%>">
+            </div>
+            <div class="col-md-12 mt-4">
+                About Instagram Link: 
+                <input type="text" name="about_us_instagram" value="<%=about_us[0].about_us_instagram %>">
+            </div>
+            <div class="col-md-12 text-center mt-4">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('footer.ejs') %>

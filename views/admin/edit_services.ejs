@@ -1,0 +1,27 @@
+<%- include('navbar.ejs')%>
+<form method="post" action="/admin/update_services" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage Services</h1>
+            </div>
+            <input type="hidden" name="services_id" value="<%=services[0].services_id%>" required>
+            <div class="col-md-4">
+                Title
+                <input type="text" name="services_title" value="<%=services[0].services_title%>" required>
+            </div>
+            <div class="col-md-4">
+                Paragraph
+                <input type="text" name="services_paragraph" value="<%=services[0].services_paragraph%>" required>
+            </div>
+            <div class="col-md-4">
+                Price
+                <input type="text" name="services_price" value="<%=services[0].services_price%>" required>
+            </div>
+            <div class="col-md-12 text-center mt-3">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('footer.ejs')%>

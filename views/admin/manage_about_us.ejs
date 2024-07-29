@@ -1,0 +1,72 @@
+<%- include('navbar.ejs') %>
+<form method="post" action="/admin/save_about_us" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Manage About Profile </h1>
+            </div>
+            <div class="col-md-4 mt-3">
+                <input type="file" name="about_us_image">
+            </div>
+            <div class="col-md-4">
+                About Paragraph
+                <input type="text" name="about_us_paragraph">
+            </div>
+            <div class="col-md-4">
+                About Facebook Link
+                <input type="text" name="about_us_facebook">
+            </div>
+            <div class="col-md-4">
+                About Twitter Link
+                <input type="text" name="about_us_twitter">
+            </div>
+            <div class="col-md-4">
+                About Instagram Link
+                <input type="text" name="about_us_instagram">
+            </div>
+            <div class="col-md-12 text-center mt-4">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    td{
+        text-align:center;
+    }
+    th{
+        text-align:center;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>Sn</th>
+                    <th>Paragraph</th>
+                    <th>Image</th>
+                </tr>
+                <% for (var i=0;i<about_us.length;i++) { %>
+                <tr>
+                    <td>
+                        <a href="/admin/edit_about_us/<%=about_us[i].about_us_id%>">
+                            <button class="btn btn-success">EDIT</button>
+                        </a>
+                        <a href="/admin/delete_about_us/<%=about_us[i].about_us_id%>">
+                            <button class="btn btn-danger mt-3">DELETE</button>
+                        </a>
+                    </td>
+                    <td><%=i+1%></td>
+                    <td><%=about_us[i].about_us_paragraph%></td>
+                    <td>
+                        <img src="/images/<%=about_us[i].about_us_image%>" width="150px">
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </div>
+</div>
+<%- include('footer.ejs') %>

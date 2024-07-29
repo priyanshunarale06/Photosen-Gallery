@@ -1,0 +1,22 @@
+<%- include('navbar.ejs')%>
+<form method="post" action="/admin/update_gallery_image" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Edit Gallery</h1>
+            </div>
+            Select Image
+            <input type="hidden" name="gallery_image_id" value="<%=gallery_image[0].gallery_image_id%>">
+            <div class="col-md-4">
+                <input type="file" name="gallery_images" required>
+            </div>
+            <div class="col-md-4">
+                <img src="/images/<%=gallery_image[0].gallery_images%>" width="100px">
+            </div>
+            <div class="col-md-12 mt-4 text-center">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('footer.ejs')%>

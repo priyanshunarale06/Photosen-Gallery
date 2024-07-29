@@ -1,0 +1,26 @@
+<%- include('navbar.ejs') %>
+<form action="/admin/save_contact" method="post" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Manage Contact info</h1>
+            </div>
+            <div class="col-4">
+                Address
+                <input type="text" name="contact_address" value="<%=contact['contact_address']%>">
+            </div>
+            <div class="col-4">
+                Phone
+                <input type="text" name="contact_phone" value="<%=contact['contact_phone']%>">
+            </div>
+            <div class="col-4">
+                Email
+                <input type="text" name="contact_email" value="<%=contact['contact_email']%>">
+            </div>
+            <div class="col-12 text-center mt-4 ">
+                <button class="btn btn-primary">SAVE</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('footer.ejs') %>
